@@ -46,6 +46,7 @@ database.ref().on("value", function(snapshot) {
           //  console.log(JSON.parse(response));
             var temp = JSON.parse(response);
             console.log(temp.events.event[0].latitude);
+            console.log(temp.events.event[0].longitude);
             var lat = temp.events.event[i].latitude;
             var lng = temp.events.event[i].longitude;
         }
