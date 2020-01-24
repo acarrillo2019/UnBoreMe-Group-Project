@@ -52,3 +52,12 @@ database.ref().on("value", function(snapshot) {
     });
 
 });
+
+
+$("#submitInfo").click(function(event){
+    event.preventDefault()
+    placeholder1 = $("#formInput1").val()
+    placeholder2 = $("#formInput2").val()
+    placeholder3 = $("#formInput3").val()
+    console.log(placeholder1+placeholder2+placeholder3)
+})
