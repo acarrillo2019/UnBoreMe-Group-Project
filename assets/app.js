@@ -43,7 +43,11 @@ database.ref().on("value", function(snapshot) {
     }).then(function (response) {
         for (var i = 0; i < 1; i++) {
             // Console logging response.events to 'see' JSON object
-            console.log(response.events);
+          //  console.log(JSON.parse(response));
+            var temp = JSON.parse(response);
+            console.log(temp.events.event[0].latitude);
+            var lat = temp.events.event[i].latitude;
+            var lng = temp.events.event[i].longitude;
         }
     });
 
