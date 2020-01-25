@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+/* DISABLE THIS LATER */
+#map {
+    display: none;
+}
+
+#headerPic{
+    max-width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+
+.cards {
+    border: solid black 3px;
+    /* position: relative; */
+    width: 100%;
+    max-width: 800px;
+    /* margin: 0 auto; */
+    height: 100%;
+    min-height: 156px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 8px;
+    background: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cards:first-child {
+    margin-top: 25px;
+}
+
+.eventPic {
+    position: relative;
+    float: left;
+}
+
+.map {
+    border-radius: 8px;
+}
+
+.eventTitle {
+    padding-top: 25px;
+}
