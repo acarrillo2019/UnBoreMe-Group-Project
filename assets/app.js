@@ -58,7 +58,7 @@ $(document).ready(function () {
 
                 newEvent = $("<div>")
                 newEvent.append(newCountry, newCity, newTime, newTitle)
-                newEvent.addClass("card")
+                newEvent.addClass("cards")
 
                 $("#resultCard").append(newEvent)
             }
