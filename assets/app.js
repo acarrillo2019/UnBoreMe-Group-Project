@@ -35,35 +35,31 @@ $(document).ready(function () {
             method: "GET",
             crossDomain: true
         }).then(function (response) {
-            // logging objest to console
-            console.log(response);
-
-            for (var i = 0; i < 1; i++) {
-                // Console logging response.events to 'see' JSON object
-                //  console.log(JSON.parse(response));
-                var temp = JSON.parse(response);
-                console.log(temp.events.event[0].latitude);
-                console.log(temp.events.event[0].longitude);
-                var lat = temp.events.event[i].latitude;
-                var lng = temp.events.event[i].longitude;
-            }
 
             // first the entire response must be parsed from its JSON origin
             temp = JSON.parse(response)
             // then we can grab the important event information from the nest
             eventData = temp.events.event
             console.log(eventData)
+            
             for (var i = 0; i < eventData.length; i++) {
+
                 newCountry = $("<p>")
                 newCountry.text(eventData[i].country_name)
+
                 newCity = $("<p>")
                 newCity.text(eventData[i].city_name)
+
                 newTime = $("<p>")
                 newTime.text(eventData[i].start_time)
+
                 newTitle = $("<p>")
                 newTitle.text(eventData[i].title)
+
                 newEvent = $("<div>")
                 newEvent.append(newCountry, newCity, newTime, newTitle)
+                newEvent.addClass("card")
+
                 $("#resultCard").append(newEvent)
             }
 
