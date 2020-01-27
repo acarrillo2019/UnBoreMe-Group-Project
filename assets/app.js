@@ -21,7 +21,7 @@ $(document).ready(function () {
     var proxyURL = "https://cors-anywhere.herokuapp.com/"
 
     
-
+    // Search query URL built from info from submitData. 
     const createQueryURL = (info) => {
         console.log(info);
         return `http://api.eventful.com/json/events/search?app_key=${API_KEY}&q=${info.searchTerm}&l=${info.location}&within=${info.radius}&t=future&c=${info.category}&page_size=25`;
@@ -42,8 +42,8 @@ $(document).ready(function () {
             // then we can grab the important event information from the nest
             eventData = temp.events.event
             console.log(eventData)
-            
-            
+            // Dynamically inserts event info into web page
+
             for (var i = 0; i < eventData.length; i++) {
 
                 newCountry = $("<p>")
@@ -75,11 +75,15 @@ $(document).ready(function () {
 
                 newEvent = $("<div>")
                 newEvent.append(newImage, newTitle, newAddress, newTime, newButton, newMap)
+
+                newEvent = $("<div>")
+                newEvent.append(newTitle, newCountry, newCity, newTime, newMap)
+
                 newEvent.addClass("cards")
 
                 $("#resultCard").append(newEvent)
-            }
 
+            }
 
             // Toggles event map display
             $('.map').click(function(e) {
@@ -93,11 +97,10 @@ $(document).ready(function () {
            });
 
         });
-
+    
     };
 
-
-
+    
     // Event handler for user clicking the submit button
     $("#submitSearch").click(function (event) {
         event.preventDefault()
@@ -122,4 +125,6 @@ $(document).ready(function () {
         console.log(snapshot.val())
 
     })
+
 });
+
