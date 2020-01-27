@@ -75,10 +75,6 @@ $(document).ready(function () {
 
                 newEvent = $("<div>")
                 newEvent.append(newImage, newTitle, newAddress, newTime, newButton, newMap)
-
-                newEvent = $("<div>")
-                newEvent.append(newTitle, newCountry, newCity, newTime, newMap)
-
                 newEvent.addClass("cards")
 
                 $("#resultCard").append(newEvent)
@@ -93,7 +89,6 @@ $(document).ready(function () {
                 $(".map div").not($this).hide();
 
                 $this.toggle();
-
            });
 
         });
