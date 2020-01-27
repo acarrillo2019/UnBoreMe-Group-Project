@@ -21,25 +21,27 @@
 
         <!-- submit info div -->
         <div class="row">
-            <form>
+            <form class="col-md-12">
                 <div class="form-group">
-                    <label for="searchTerm">Search Term (TBC)</label>
-                    <input type="text" class="form-control" id="searchTerm" placeholder="Artist, Venue, etc">
+                    <label for="searchTerm" class="col-md-12"><h3 class="text-center font-weight-bold">Search Term (TBC)</h3></label>
+                    <input type="text" class="form-control text-center" id="searchTerm" placeholder="Artist, Venue, etc">
                 </div>
                 <div class="form-group">
-                    <label for="category">Category</label>
-                    <input type="text" class="form-control" id="category" placeholder="Music/Food/Movie/etc">
+                    <label for="category" class="col-md-12"><h3 class="text-center font-weight-bold">Category</h3></label>
+                    <input type="text" class="form-control text-center" id="category" placeholder="Music/Food/Movie/etc">
                 </div>
                 <div class="form-group">
-                    <label for="state">Location</label>
-                    <input type="text" class="form-control" id="state"
+                    <label for="state" class="col-md-12"><h3 class="text-center font-weight-bold">Location</h3></label>
+                    <input type="text" class="form-control text-center" id="state"
                         placeholder="City, State">
                 </div>
                 <div class="form-group">
-                    <label for="radius">Search Radius</label>
-                    <input type="text" class="form-control" id="radius" placeholder="In miles">
+                    <label for="radius" class="col-md-12"><h3 class="text-center font-weight-bold">Search Radius</h3></label>
+                    <input type="text" class="form-control text-center" id="radius" placeholder="In miles">
                 </div>
+                <div class="col-md-12 text-center mt-4">
                 <button type="submit" id="submitSearch" class="btn btn-primary">Submit</button>
+                </div>
             </form>
         </div>
 
@@ -54,10 +56,10 @@
         </div>
     </div>
 
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
 
     <div id="resultCard">
-        <div class="cards">
+     <!--   <div class="cards">
             <img src="https://via.placeholder.com/150" class="eventPic">
             <h2 class="eventTitle">Super Awesome Music Fest!</h2>
             <p class="location">14831 e Narnia Land Phoenix, AZ 85331
@@ -74,7 +76,7 @@
             <h2 class="eventTitle">Super Awesome Music Fest!</h2>
             <p class="location">14831 e Narnia Land Phoenix, AZ 85331
                 <button class="map">Map</button></p>
-        </div>
+        </div> -->
     </div>
 
     <!-- google map script -->
