@@ -2,10 +2,14 @@
     box-sizing: border-box;
 }
 
-/* DISABLE THIS LATER */
+ /* DISABLE THIS LATER */
 #map {
-    display: none;
-}
+    display: none; 
+    height: 400px;
+    width: 100%;
+} 
+
+
 
 #headerPic{
     max-width: 400px;
@@ -47,7 +51,7 @@
     float: left;
 }
 
-.map {
+.mapButton {
     border-radius: 8px;
 }
 
