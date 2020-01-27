@@ -48,10 +48,14 @@
 .eventPic {
     position: relative;
     float: left;
+    max-height: 150px;
+    max-width: 150px;
 }
 
-.mapButton {
-    border-radius: 8px;
+.map {
+    border-radius: 4px;
+    padding: 2px;
+    margin-bottom: 5px;
 }
 
 .eventTitle {
