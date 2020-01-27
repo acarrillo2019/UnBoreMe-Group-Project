@@ -56,6 +56,9 @@ $(document).ready(function () {
                 newTitle = $("<p>")
                 newTitle.text(eventData[i].title)
 
+                newImage = $("div src=" + eventData[i].image.small + "/>")
+                newImage.addClass("eventPic")
+
                 newEvent = $("<div>")
                 newEvent.append(newCountry, newCity, newTime, newTitle)
                 newEvent.addClass("cards")
