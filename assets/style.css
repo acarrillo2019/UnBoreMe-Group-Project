@@ -4,8 +4,13 @@
 
 /* DISABLE THIS LATER */
 #map {
-    display: none;
-}
+
+  /*  display: none; */
+    height: 400px;
+    width: 100%;
+} 
+
+
 
 #headerPic{
     max-width: 400px;
