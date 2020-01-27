@@ -14,6 +14,7 @@ $(document).ready(function () {
 
     database = firebase.database()
 
+
     // These variables hold will feed data to the querlyURL. The variable values will come from user input. Currently some of the variables hold temporary data for testing purposes.
     
     var API_KEY = "vMvwtd4qCcNr8hZL";
@@ -42,6 +43,7 @@ $(document).ready(function () {
             eventData = temp.events.event
             console.log(eventData)
             // Dynamically inserts event info into web page
+
             for (var i = 0; i < eventData.length; i++) {
 
                 newCountry = $("<p>")
@@ -53,18 +55,46 @@ $(document).ready(function () {
                 newTime = $("<p>")
                 newTime.text(eventData[i].start_time)
 
-                newTitle = $("<p>")
+                newTitle = $("<h2>")
                 newTitle.text(eventData[i].title)
 
-                newMap = $("<div>").attr("id", "map")
+                newAddress = $("<p>")
+                newAddress.text(eventData[i].venue_address)
+                newAddress.addClass("location")
+
+                newImage = $("<img src='https://via.placeholder.com/150'>")
+                newImage.addClass("eventPic")
+
+                newMap = $("<div>")
+                newMap.attr("id", "map")
+                newMap.attr("style", "display:none")
+
+                newButton = $("<button>")
+                newButton.text("View Map")
+                newButton.addClass("map")
+
+                newEvent = $("<div>")
+                newEvent.append(newImage, newTitle, newAddress, newTime, newButton, newMap)
 
                 newEvent = $("<div>")
                 newEvent.append(newTitle, newCountry, newCity, newTime, newMap)
+
                 newEvent.addClass("cards")
 
                 $("#resultCard").append(newEvent)
 
             }
+
+            // Toggles event map display
+            $('.map').click(function(e) {
+                e.preventDefault();
+
+                var $this = $(this).parent().find('div');
+                $(".map div").not($this).hide();
+
+                $this.toggle();
+
+           });
 
         });
     
@@ -96,6 +126,5 @@ $(document).ready(function () {
 
     })
 
-
-
 });
+
