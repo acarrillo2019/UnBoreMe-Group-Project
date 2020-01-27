@@ -67,6 +67,7 @@ $(document).ready(function () {
 
                 newMap = $("<div>")
                 newMap.attr("id", "map")
+                newMap.attr("style", "display:none")
 
                 newButton = $("<button>")
                 newButton.text("View Map")
@@ -79,7 +80,17 @@ $(document).ready(function () {
                 $("#resultCard").append(newEvent)
             }
 
-            console.log(eventData[i].image.small.url)
+
+            // Toggles event map display
+            $('.map').click(function(e) {
+                e.preventDefault();
+
+                var $this = $(this).parent().find('div');
+                $(".map div").not($this).hide();
+
+                $this.toggle();
+
+           });
 
         });
 
