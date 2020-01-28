@@ -2,19 +2,34 @@
     box-sizing: border-box;
 }
 
+body { 
+    background: url(images/black-linen.png) 
+}
+
  /* DISABLE THIS LATER */
 #map {
     height: 400px;
     width: 100%;
 } 
 
+.col-md-12 {
+    color: white;
+}
 
 
-#headerPic{
-    max-width: 400px;
+
+#headerPic {
+    max-width: 500px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -65px;
+    margin-bottom: -130px;
+}
+
+.jumbotron {
+    background: rgb(39, 38, 38);
+    border-radius: 0px;
 }
 
 .container {
@@ -25,7 +40,7 @@
 }
 
 .cards {
-    border: solid black 3px;
+    border: solid rgb(71, 71, 71) 3px;
     /* position: relative; */
     width: 100%;
     max-width: 800px;
@@ -50,14 +65,17 @@
     float: left;
     max-height: 150px;
     max-width: 150px;
+    border-top-left-radius: 6px;
 }
 
 .map {
     border-radius: 4px;
     padding: 2px;
     margin-bottom: 5px;
+
 }
 
 .eventTitle {
     padding-top: 25px;
 }
+
