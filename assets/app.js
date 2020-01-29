@@ -99,6 +99,7 @@ $(document).ready(function () {
     // Event handler for user clicking the submit button
     $("#submitSearch").click(function (event) {
         event.preventDefault()
+        $("#resultCard").empty();
         // Storing the search queries
        var submitData =  {
              searchTerm : $("#searchTerm").val().trim(),
@@ -108,8 +109,12 @@ $(document).ready(function () {
              radius : $("#radius").val().trim(),
           //   where : state + city
         }
+        
         // Running the searchEvents function(passing search queries as arguments)
         searchEvents(submitData);
+
+        $("#searchTerm").val("");
+        $("#category").val("");
        
     })
 
