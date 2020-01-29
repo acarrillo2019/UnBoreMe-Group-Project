@@ -24,7 +24,7 @@ $(document).ready(function () {
     // Search query URL built from info from submitData. 
     const createQueryURL = (info) => {
         console.log(info);
-        return `http://api.eventful.com/json/events/search?app_key=${API_KEY}&q=${info.searchTerm}&l=${info.location}&within=${info.radius}&t=future&c=${info.category}&page_size=25`;
+        return `http://api.eventful.com/json/events/search?app_key=${API_KEY}&q=${info.category}&l=${info.location}&within=${info.radius}&t=future&c=${info.category}&page_size=25`;
       }
 
     function searchEvents(data) {
@@ -46,6 +46,15 @@ $(document).ready(function () {
 
             for (var i = 0; i < eventData.length; i++) {
 
+                var imgSRC;
+
+                if(eventData[i].image === null){
+                    imgSRC = "assets/images/unboremini.png";
+                }else{
+                    imgSRC = "http:" + eventData[i].image.medium.url;
+                }
+                console.log(imgSRC);
+
                 newCountry = $("<p>")
                 newCountry.text(eventData[i].country_name)
 
@@ -62,16 +71,9 @@ $(document).ready(function () {
                 newAddress.text(eventData[i].venue_address)
                 newAddress.addClass("location")
 
-                newImage = $("<img src='assets/images/unboremini.png'>")
+                newImage = $("<img src='" + imgSRC + "'>")
                 newImage.addClass("eventPic")
-                if(eventData[i].image === null){
-                    newImage = $("<img src='assets/images/unboremini.png'>")
-                    newImage.addClass("eventPic")
-                }else{
-                    newImage = $("<img>")
-                    newImage.addClass("eventPic")
-                    newImage.attr("src",eventData[i].image.url)
-                }
+              
 
                 newMap = $("<div>")
                 newMap.attr("id", "map")
@@ -112,8 +114,8 @@ $(document).ready(function () {
         $("#resultCard").empty();
         // Storing the search queries
        var submitData =  {
-             searchTerm : $("#searchTerm").val().trim(),
-             category : $("#category").val().trim(),
+            //  searchTerm : $("#searchTerm").val().trim(),
+             category : $("#category option:selected").text().trim(),
              location : $("#state").val().trim(),
            //  city : $("#city").val().trim(),
              radius : $("#radius").val().trim(),
