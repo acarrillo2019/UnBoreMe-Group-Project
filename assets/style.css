@@ -16,7 +16,9 @@ body {
     color: white;
 }
 
-
+label {
+    color: white;
+}
 
 #headerPic {
     max-width: 500px;
@@ -72,7 +74,7 @@ body {
     border-radius: 4px;
     padding: 2px;
     margin-bottom: 5px;
-
+    color: blue;
 }
 
 .eventTitle {
