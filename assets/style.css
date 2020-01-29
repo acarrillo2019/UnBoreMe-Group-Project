@@ -81,3 +81,9 @@ label {
     padding-top: 25px;
 }
 
+@media only screen and (max-width: 576px) {
+    #headerPic {
+        max-width: 250px;
+        margin-top: -45px;
+    }
+   }
