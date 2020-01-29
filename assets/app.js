@@ -49,9 +49,9 @@ $(document).ready(function () {
                 var imgSRC;
 
                 if(eventData[i].image === null){
-                    imgSRC = "//via.placeholder.com/150";
+                    imgSRC = "assets/images/unboremini.png";
                 }else{
-                    imgSRC = eventData[i].image.medium.url;
+                    imgSRC = "http:" + eventData[i].image.medium.url;
                 }
                 console.log(imgSRC);
 
@@ -71,7 +71,7 @@ $(document).ready(function () {
                 newAddress.text(eventData[i].venue_address)
                 newAddress.addClass("location")
 
-                newImage = $("<img src='http:" + imgSRC + "'>")
+                newImage = $("<img src='" + imgSRC + "'>")
                 newImage.addClass("eventPic")
               
 
