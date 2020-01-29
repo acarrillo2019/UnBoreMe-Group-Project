@@ -29,10 +29,10 @@ $(document).ready(function () {
 
     function searchEvents(data) {
         // queryURL to pull data from Eventful.com. The proxy URL is necessary to circumvent CORS rejection.
-        var queryURL = createQueryURL(data);
+        var queryURL = proxyURL + createQueryURL(data);
         console.log(queryURL);
         $.ajax({
-            url: proxyURL + queryURL,
+            url: queryURL,
             method: "GET",
             crossDomain: true
         }).then(function (response) {
@@ -62,8 +62,16 @@ $(document).ready(function () {
                 newAddress.text(eventData[i].venue_address)
                 newAddress.addClass("location")
 
-                newImage = $("<img src='https://via.placeholder.com/150'>")
+                newImage = $("<img src='assets/images/unboremini.png'>")
                 newImage.addClass("eventPic")
+                if(eventData[i].image === null){
+                    newImage = $("<img src='assets/images/unboremini.png'>")
+                    newImage.addClass("eventPic")
+                }else{
+                    newImage = $("<img>")
+                    newImage.addClass("eventPic")
+                    newImage.attr("src",eventData[i].image.url)
+                }
 
                 newMap = $("<div>")
                 newMap.attr("id", "map")
@@ -72,6 +80,8 @@ $(document).ready(function () {
                 newButton = $("<button>")
                 newButton.text("View Map")
                 newButton.addClass("map")
+                newButton.attr("value",eventData[i].venue_address)
+                
 
                 newEvent = $("<div>")
                 newEvent.append(newImage, newTitle, newAddress, newTime, newButton, newMap)
@@ -84,7 +94,7 @@ $(document).ready(function () {
             // Toggles event map display
             $('.map').click(function(e) {
                 e.preventDefault();
-
+                console.log($(this).val())
                 var $this = $(this).parent().find('div');
                 $(".map div").not($this).hide();
 
@@ -113,11 +123,15 @@ $(document).ready(function () {
         // Running the searchEvents function(passing search queries as arguments)
         searchEvents(submitData);
 
+        if (submitData.location == "") {
+            console.log("location needeed")
+            return false;
+        }
+
         $("#searchTerm").val("");
         $("#category").val("");
-       
-    })
 
+    })
 
 
     database.ref().on("value", function (snapshot) {
