@@ -87,3 +87,11 @@ label {
         margin-top: -45px;
     }
    }
+
+.modal-title {
+    margin: 0 auto;
+}
+
+#close {
+    margin: 0 0;
+}
