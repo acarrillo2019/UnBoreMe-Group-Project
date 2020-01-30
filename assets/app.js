@@ -79,14 +79,14 @@ $(document).ready(function () {
                 newMap.attr("id", "map")
                 newMap.attr("style", "display:none")
 
-                newButton = $("<button>")
+                newButton = $("<button type='button' data-toggle='modal' data-target='#myModal' data-lat='" + eventData[i].latitude + "' data-lng='" + eventData[i].longitude + "'>")
                 newButton.text("View Map")
                 newButton.addClass("map")
                 newButton.attr("value",eventData[i].venue_address)
                 
 
                 newEvent = $("<div>")
-                newEvent.append(newImage, newTitle, newAddress, newTime, newButton, newMap)
+                newEvent.append(newImage, newTitle, newAddress, newTime, newButton)
                 newEvent.addClass("cards")
 
                 $("#resultCard").append(newEvent)
@@ -96,12 +96,54 @@ $(document).ready(function () {
             // Toggles event map display
             $('.map').click(function(e) {
                 e.preventDefault();
-                console.log($(this).val())
+              /*  console.log($(this).val())
                 var $this = $(this).parent().find('div');
                 $(".map div").not($this).hide();
 
-                $this.toggle();
+                $this.toggle(); */
+                $(document).ready(function() {
+                    var map = null;
+                    var myMarker;
+                    var myLatlng;
+                  
+                    function initializeGMap(lat, lng) {
+                      myLatlng = new google.maps.LatLng(lat, lng);
+                  
+                      var myOptions = {
+                        zoom: 15,
+                        zoomControl: true,
+                        center: myLatlng,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                      };
+                  
+                      map = new google.maps.Map(document.getElementById("map"), myOptions);
+                  
+                      myMarker = new google.maps.Marker({
+                        position: myLatlng
+                      });
+                      myMarker.setMap(map);
+                    }
+                  
+                    // Re-init map before show modal
+                    $('#myModal').on('show.bs.modal', function(event) {
+                      var button = $(event.relatedTarget);
+                      initializeGMap(button.data('lat'), button.data('lng'));
+                      $("#location-map").css("width", "100%");
+                      $("#map_canvas").css("width", "100%");
+                    });
+                  
+                    // Trigger map resize event after modal shown
+                    $('#myModal').on('shown.bs.modal', function() {
+                      google.maps.event.trigger(map, "resize");
+                      map.setCenter(myLatlng);
+                    });
+                  });
+
            });
+
+
+
+
 
         });
     

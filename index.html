@@ -88,7 +88,39 @@
         </div> -->
     </div>
 
-    <!-- google map script -->
+
+        <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 modal_body_content">
+              <p>Some contents...</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 modal_body_map">
+              <div class="location-map" id="location-map">
+                <div style="width: 600px; height: 400px;" id="map"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 modal_body_end">
+              <p>Else...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- google map script 
     <script>
         // Initialize and add the map
         function initMap() {
@@ -102,16 +134,16 @@
         }
     </script> 
 
-    <!-- Load the API from the specified URL
+     Load the API from the specified URL
              * The async attribute allows the browser to render the page while the API loads
              * The key parameter will contain your own API key (which is not needed for this tutorial)
              * The callback parameter executes the initMap() function */ -->
 
     <script 
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoMvdbTu1ucaGM-qE6500rBOpuah5YQ_M&callback=initMap"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoMvdbTu1ucaGM-qE6500rBOpuah5YQ_M"></script> 
 
-
-    <!-- jquery -->
+    <!--<script src="//maps.googleapis.com/maps/api/js"></script>
+     jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!--bootstrap popper.js -->
