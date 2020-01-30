@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>Purple Parrots</title>
+    <title>UnBore Me!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- css -->
     <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
-
+    <!-- External Style Sheet-->
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -20,10 +20,12 @@
 
     <div class="container">
 
-        <!-- submit info div -->
+                                    <!-- User Input Section -->
+
+        <!-- Category-->
         <div class="row">
-            <form class="col-md-12">
-                <label ><h3 class="text-center font-weight-bold">Category</h3>
+            <form class="col-md-12 text-center">
+                <h3 class="text-center font-weight-bold">Category</h3>
                     <select id="category">
                         <option value="">Select One</option>
                         <option value="Food">Food</option>
@@ -38,16 +40,25 @@
                     </select>
                 </label>
 
-
+                <!-- City/State input-->
                 <div class="form-group">
                     <label for="state" class="col-md-12"><h3 class="text-center font-weight-bold">Location</h3></label>
                     <input type="text" class="form-control text-center" id="state"
                         placeholder="City, State">
                 </div>
-                <div class="form-group">
-                    <label for="radius" class="col-md-12"><h3 class="text-center font-weight-bold">Search Radius</h3></label>
-                    <input type="text" class="form-control text-center" id="radius" placeholder="In miles">
-                </div>
+                <!-- Radius input -->
+                <form class="col-md-12 text-center">
+                    <h3 class="text-center font-weight-bold">Search Radius</h3>
+                        <select id="radius">
+                            <option value="5">5 Miles</option>
+                            <option value="10">10 Miles</option>
+                            <option value="25">25 Miles</option>
+                            <option value="50">50 Miles</option>
+                        </select>
+                    </label>
+
+
+                <!--Submit Button-->
                 <div class="col-md-12 text-center mt-4">
                 <button type="submit" id="submitSearch" class="btn btn-primary">Submit</button>
                 </div>
@@ -65,37 +76,19 @@
         </div>
     </div>
 
-    <!-- <div id="map"></div> -->
-
+    <!-- This is where the event cards will be appended -->
     <div id="resultCard">
-     <!--   <div class="cards">
-            <img src="https://via.placeholder.com/150" class="eventPic">
-            <h2 class="eventTitle">Super Awesome Music Fest!</h2>
-            <p class="location">14831 e Narnia Land Phoenix, AZ 85331
-                <button class="map">Map</button></p>
-        </div> -->
-        <!-- <div class="cards">
-            <img src="https://via.placeholder.com/150" class="eventPic">
-            <h2 class="eventTitle">Super Awesome Music Fest!</h2>
-            <p class="location">14831 e Narnia Land Phoenix, AZ 85331
-                <button class="map">Map</button></p>
-        </div>
-        <div class="cards">
-            <img src="https://via.placeholder.com/150" class="eventPic">
-            <h2 class="eventTitle">Super Awesome Music Fest!</h2>
-            <p class="location">14831 e Narnia Land Phoenix, AZ 85331
-                <button class="map">Map</button></p> -->
-        </div> -->
+    
     </div>
 
 
-        <!-- Modal -->
+        <!-- Modal for Map -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          <h4 class="modal-title" id="myModalLabel">Event Location</h4>
+          <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
           <div class="row">
@@ -106,7 +99,7 @@
           <div class="row">
             <div class="col-md-12 modal_body_map">
               <div class="location-map" id="location-map">
-                <div style="width: 600px; height: 400px;" id="map"></div>
+                <div style="width: 600px; height: 400px;" id="map" class="col-md-12"></div>
               </div>
             </div>
           </div>
@@ -119,31 +112,10 @@
       </div>
     </div>
 
-
-    <!-- google map script 
-    <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of event
-            var event = { lat: 32.4420073, lng: -110.9347612 };
-            // The map, centered at event
-            var map = new google.maps.Map(
-                document.getElementById('map'), { zoom: 13, center: event });
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({ position: event, map: map });
-        }
-    </script> 
-
-     Load the API from the specified URL
-             * The async attribute allows the browser to render the page while the API loads
-             * The key parameter will contain your own API key (which is not needed for this tutorial)
-             * The callback parameter executes the initMap() function */ -->
-
+    <!-- Google Maps api-->
     <script 
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoMvdbTu1ucaGM-qE6500rBOpuah5YQ_M"></script> 
-
-    <!--<script src="//maps.googleapis.com/maps/api/js"></script>
-     jquery -->
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!--bootstrap popper.js -->

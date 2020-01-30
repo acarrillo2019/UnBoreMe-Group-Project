@@ -96,11 +96,8 @@ $(document).ready(function () {
             // Toggles event map display
             $('.map').click(function(e) {
                 e.preventDefault();
-              /*  console.log($(this).val())
-                var $this = $(this).parent().find('div');
-                $(".map div").not($this).hide();
 
-                $this.toggle(); */
+                // Initializes and appends Google Maps to a Modal
                 $(document).ready(function() {
                     var map = null;
                     var myMarker;
@@ -122,6 +119,8 @@ $(document).ready(function () {
                         position: myLatlng
                       });
                       myMarker.setMap(map);
+
+                      map.setCenter(myLatlng);
                     }
                   
                     // Re-init map before show modal
@@ -135,18 +134,11 @@ $(document).ready(function () {
                     // Trigger map resize event after modal shown
                     $('#myModal').on('shown.bs.modal', function() {
                       google.maps.event.trigger(map, "resize");
-                      map.setCenter(myLatlng);
+                      
                     });
-                  });
-
+                });
            });
-
-
-
-
-
         });
-    
     };
 
     
@@ -185,4 +177,3 @@ $(document).ready(function () {
     })
 
 });
-
