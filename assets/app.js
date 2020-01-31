@@ -98,7 +98,7 @@ $(document).ready(function () {
                 e.preventDefault();
 
                 // Initializes and appends Google Maps to a Modal
-                $(document).ready(function() {
+                
                     var map = null;
                     var myMarker;
                     var myLatlng;
@@ -136,7 +136,7 @@ $(document).ready(function () {
                       google.maps.event.trigger(map, "resize");
                       
                     });
-                });
+              
            });
         });
     };
