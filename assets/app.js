@@ -77,9 +77,9 @@ $(document).ready(function () {
 
         newShareButton = $("<div>")
         newShareButton.addClass("fb-share-button")
-        newShareButton.attr("data-href", eventData[i].url)
-        newShareButton.attr("data-layout", "button")
-        newShareButton.attr("data-size", "large")
+        newShareButton.attr( { "data-href": eventData[i].url, "data-layout": "button", "data-size": "large" })
+        // newShareButton.attr("data-layout", "button")
+        // newShareButton.attr("data-size", "large")
         shareAnchor = $("<a>")
         shareAnchor.attr("target", "_blank")
         var shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + eventData[i].url
@@ -87,6 +87,12 @@ $(document).ready(function () {
         shareAnchor.addClass("fb-xfbml-parse-ignore")
         shareAnchor.text("Share")
         newShareButton.append(shareAnchor)
+        
+        newURL = $("<a>")
+        newURL.attr("target", "_blank")
+        newURL.attr("href", eventData[i].url)
+        newURL.text("Event Info")
+        newURL.addClass("btn btn-primary")
 
         newMap = $("<div>")
         newMap.attr("id", "map")
@@ -94,16 +100,16 @@ $(document).ready(function () {
 
         newButton = $("<button type='button' data-toggle='modal' data-target='#myModal' data-lat='" + eventData[i].latitude + "' data-lng='" + eventData[i].longitude + "'>")
         newButton.text("View Map")
-        newButton.addClass("map")
         newButton.attr("value", eventData[i].venue_address)
+        newButton.addClass("map btn btn-primary")
 
 
         newEvent = $("<div>")
-        newEvent.append(newImage, newTitle, newAddress, newTime, newShareButton, newButton)
+        newEvent.append(newImage, newTitle, newAddress, newTime, newURL, newShareButton, newButton)
         newEvent.addClass("cards")
 
         $("#resultCard").append(newEvent)
-
+        FB.XFBML.parse()  
       }
 
       // Toggles event map display
