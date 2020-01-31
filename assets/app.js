@@ -73,7 +73,20 @@ $(document).ready(function () {
 
         newImage = $("<img src='" + imgSRC + "'>")
         newImage.addClass("eventPic")
+        eventData[i].url
 
+        newShareButton = $("<div>")
+        newShareButton.addClass("fb-share-button")
+        newShareButton.attr("data-href", eventData[i].url)
+        newShareButton.attr("data-layout", "button")
+        newShareButton.attr("data-size", "large")
+        shareAnchor = $("<a>")
+        shareAnchor.attr("target", "_blank")
+        var shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + eventData[i].url
+        shareAnchor.attr("href", shareURL)
+        shareAnchor.addClass("fb-xfbml-parse-ignore")
+        shareAnchor.text("Share")
+        newShareButton.append(shareAnchor)
 
         newMap = $("<div>")
         newMap.attr("id", "map")
@@ -86,7 +99,7 @@ $(document).ready(function () {
 
 
         newEvent = $("<div>")
-        newEvent.append(newImage, newTitle, newAddress, newTime, newButton)
+        newEvent.append(newImage, newTitle, newAddress, newTime, newShareButton, newButton)
         newEvent.addClass("cards")
 
         $("#resultCard").append(newEvent)
@@ -164,16 +177,75 @@ $(document).ready(function () {
 
       // Running the searchEvents function(passing search queries as arguments)
       searchEvents(submitData);
+
+      // finds the chosen catagory and updates firebase      
+      if (submitData.category === "Food") {
+        Food++
+        database.ref().update({
+          food: Food
+        })
+      } else if (submitData.category === "Music") {
+        Music++
+        database.ref().update({
+          music: Music
+        })
+      } else if (submitData.category === "Comedy") {
+        Comedy++
+        database.ref().update({
+          comedy: Comedy
+        })
+      } else if (submitData.category === "Literature") {
+        Literature++
+        database.ref().update({
+          literature: Literature
+        })
+      } else if (submitData.category === "Art") {
+        Art++
+        database.ref().update({
+          art: Art
+        })
+      } else if (submitData.category === "Carnival") {
+        Carnival++
+        database.ref().update({
+          carnival: Carnival
+        })
+      } else if (submitData.category === "Cultural") {
+        Cultural++
+        database.ref().update({
+          cultural: Cultural
+        })
+      } else if (submitData.category === "TradeShow") {
+        TradeShow++
+        database.ref().update({
+          tradeShow: TradeShow
+        })
+      } else if (submitData.category === "Sports") {
+        Sports++
+        database.ref().update({
+          sports: Sports
+        })
+      } else {
+        console.log("firebase logic update error")
+      }
     }
-
-
   });
 
-
+  // when the page bootsup/loads/value changes the local variables update
   database.ref().on("value", function (snapshot) {
-
     console.log(snapshot.val())
-
+    Food = snapshot.val().food
+    Music = snapshot.val().music
+    Comedy = snapshot.val().comedy
+    Literature = snapshot.val().literature
+    Art = snapshot.val().art
+    Carnival = snapshot.val().carnival
+    Cultural = snapshot.val().cultural
+    TradeShow = snapshot.val().tradeShow
+    Sports = snapshot.val().sports
   })
+
+
+
+
 
 });
