@@ -7,6 +7,11 @@ body {
     font-family: 'Bowlby One SC', cursive;
 }
 
+h2, p {
+    color: rgb(73, 73, 73);
+    text-align: center;
+}
+
 
 #map {
     height: 400px;
@@ -70,6 +75,7 @@ label {
     max-height: 150px;
     max-width: 150px;
     border-top-left-radius: 6px;
+    /* margin-bottom: 100px; */
 }
 
 .map {

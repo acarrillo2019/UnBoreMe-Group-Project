@@ -63,16 +63,20 @@ $(document).ready(function () {
 
         newTime = $("<p>")
         newTime.text(eventData[i].start_time)
+        newTime.addClass("text-center")
 
         newTitle = $("<h2>")
         newTitle.text(eventData[i].title)
+        newTitle.addClass("text-center")
 
         newAddress = $("<p>")
         newAddress.text(eventData[i].venue_address)
         newAddress.addClass("location")
+        newAddress.addClass("text-center")
 
         newImage = $("<img src='" + imgSRC + "'>")
         newImage.addClass("eventPic")
+        newImage.addClass("col-md-2")
         eventData[i].url
 
         newShareButton = $("<div>")
