@@ -2,101 +2,96 @@
 <html lang="en">
 
 <head>
-    <!-- Meta data about site -->
-    <title>UnBore Me!</title>
-    <link rel="icon" href="assets/images/unboremini.png">
-    <meta name="description" content="Search thousands of events in your area with UnBore ME!">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- CSS: Reset, Bootstrap and Foundation -->
-    <link rel="stylesheet" href="assets/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
-    <!-- External Style Sheet-->
-    <link rel="stylesheet" href="assets/style.css">
+  <!-- Meta data about site -->
+  <title>UnBore Me!</title>
+  <link rel="icon" href="assets/images/unboremini.png">
+  <meta name="description" content="Search thousands of events in your area with UnBore ME!">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- CSS: Reset, Bootstrap and Foundation -->
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css"
+    integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg=="
+    crossorigin="anonymous">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+  <!-- External Style Sheet-->
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
   <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=136542964087660&autoLogAppEvents=1"></script> 
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=136542964087660&autoLogAppEvents=1"></script>
 
 
-    <div class="jumbotron">
-        <img src="assets/images/unboreme.png" id="headerPic">
-    </div>
+  <div class="jumbotron">
+    <img src="assets/images/unboreme.png" id="headerPic">
+  </div>
 
-    <div class="container">
+  <div class="container">
 
     <!-- User Input Section -->
 
-        <!-- Category-->
-        <div class="row">
-            <form class="col-md-12 text-center">
-                <h3 class="text-center font-weight-bold">Category</h3>
-                    <select id="category">
-                        <option value="">Select One</option>
-                        <option value="Food">Food</option>
-                        <option value="Music">Music</option>
-                        <option value="Comedy">Comedy</option>
-                        <option value="literature">Literature</option>
-                        <option value="Art">Art</option>
-                        <option value="Carnival">Carnival</option>
-                        <option value="Cultural">Cultural</option>
-                        <option value="Trade Show">Trade Show</option>
-                        <option value="Sports">Sports</option>
-                    </select>
-                </label>
+    <!-- Category-->
+    <div class="row">
+      <form class="col-md-12 text-center">
+        <h3 class="text-center font-weight-bold">Category</h3>
+        <select id="category">
+          <option value="">Select One</option>
+          <option value="Food">Food</option>
+          <option value="Music">Music</option>
+          <option value="Comedy">Comedy</option>
+          <option value="literature">Literature</option>
+          <option value="Art">Art</option>
+          <option value="Carnival">Carnival</option>
+          <option value="Cultural">Cultural</option>
+          <option value="Trade Show">Trade Show</option>
+          <option value="Sports">Sports</option>
+        </select>
+        </label>
 
-                <!-- City/State input-->
-                <div class="form-group">
-                    <label for="state" class="col-md-12"><h3 class="text-center font-weight-bold">Location</h3></label>
-                    <input type="text" class="form-control text-center" id="state"
-                        placeholder="City, State">
-                </div>
-                <!-- Radius input -->
-                <form class="col-md-12 text-center">
-                    <h3 class="text-center font-weight-bold">Search Radius</h3>
-                        <select id="radius">
-                            <option value="5">5 Miles</option>
-                            <option value="10">10 Miles</option>
-                            <option value="25">25 Miles</option>
-                            <option value="50">50 Miles</option>
-                        </select>
-                    </label>
-
-
-                <!--Submit Button-->
-                <div class="col-md-12 text-center mt-4">
-                <button type="submit" id="submitSearch" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+        <!-- City/State input-->
+        <div class="form-group">
+          <label for="state" class="col-md-12">
+            <h3 class="text-center font-weight-bold">Location</h3>
+          </label>
+          <input type="text" class="form-control text-center" id="state" placeholder="City, State">
         </div>
+        <!-- Radius input -->
+        <form class="col-md-12 text-center">
+          <h3 class="text-center font-weight-bold">Search Radius</h3>
+          <select id="radius">
+            <option value="5">5 Miles</option>
+            <option value="10">10 Miles</option>
+            <option value="25">25 Miles</option>
+            <option value="50">50 Miles</option>
+          </select>
+          </label>
 
-        <!-- button div -->
-        <div class="row">
 
-        </div>
-
-        <!-- display div -->
-        <div class="row">
-            <div class="col"></div>
-        </div>
+          <!--Submit Button-->
+          <div class="col-md-12 text-center mt-4">
+            <button type="submit" id="submitSearch" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
     </div>
 
-    <!-- This is where the event cards will be appended -->
-    <div id="resultCard">
-      
-    </div>
+  <!-- This is where the event cards will be appended -->
+  <div id="resultCard">
 
-        <!-- Modal for Map -->
+  </div>
+
+  <!-- Modal for Map -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Event Location</h4>
-          <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
           <div class="row">
@@ -120,26 +115,25 @@
       </div>
     </div>
   </div>
-    <!-- Google Maps api-->
-    <script 
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoMvdbTu1ucaGM-qE6500rBOpuah5YQ_M"></script> 
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <!--bootstrap popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <!--bootstrap javascript plugins -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <!-- firebaselink -->
-    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
-    <!-- moment.js needed -->
 
-    <script src="assets/app.js"></script>
+  <!-- Google Maps api-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoMvdbTu1ucaGM-qE6500rBOpuah5YQ_M"></script>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <!--bootstrap popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <!--bootstrap javascript plugins -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <!-- firebaselink -->
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+
+  <script src="assets/app.js"></script>
 
 </body>
 
