@@ -3,7 +3,8 @@
 }
 
 body { 
-    background: url(images/black-linen.png) 
+    background: url(images/black-linen.png);
+    font-family: 'Bowlby One SC', cursive;
 }
 
 
