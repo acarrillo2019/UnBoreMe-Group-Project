@@ -6,10 +6,11 @@ body {
     background: url(images/black-linen.png) 
 }
 
- /* DISABLE THIS LATER */
+
 #map {
     height: 400px;
     width: 100%;
+    text-align: center;
 } 
 
 .col-md-12 {

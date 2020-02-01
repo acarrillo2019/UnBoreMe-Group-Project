@@ -76,7 +76,7 @@ $(document).ready(function () {
         eventData[i].url
 
         newShareButton = $("<div>")
-        newShareButton.addClass("fb-share-button")
+        newShareButton.addClass("fb-share-button btn btn-primary")
         newShareButton.attr( { "data-href": eventData[i].url, "data-layout": "button", "data-size": "large" })
         shareAnchor = $("<a>")
         shareAnchor.attr("target", "_blank")
