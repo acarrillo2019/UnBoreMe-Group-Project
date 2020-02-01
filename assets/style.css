@@ -3,13 +3,20 @@
 }
 
 body { 
-    background: url(images/black-linen.png) 
+    background: url(images/black-linen.png);
+    font-family: 'Bowlby One SC', cursive;
 }
 
- /* DISABLE THIS LATER */
+h2, p {
+    color: rgb(73, 73, 73);
+    text-align: center;
+}
+
+
 #map {
     height: 400px;
     width: 100%;
+    text-align: center;
 } 
 
 .col-md-12 {
@@ -68,6 +75,7 @@ label {
     max-height: 150px;
     max-width: 150px;
     border-top-left-radius: 6px;
+    /* margin-bottom: 100px; */
 }
 
 .map {
