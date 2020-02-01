@@ -1,4 +1,6 @@
 
+// all the firebase details
+// ======================================================================================================
 var firebaseConfig = {
   apiKey: "AIzaSyCeshwfwLmlh2uwM6BLs7J4SmoUbmZvoGQ",
   authDomain: "unboreme-b99d9.firebaseapp.com",
@@ -13,7 +15,7 @@ firebase.initializeApp(firebaseConfig);
 
 database = firebase.database()
 
-// when the page bootsup/loads/value changes the local variables update
+// creates local variables so search patterns can be recorded
 database.ref().on("value", function (snapshot) {
   console.log(snapshot.val())
   Food = snapshot.val().food
@@ -26,8 +28,9 @@ database.ref().on("value", function (snapshot) {
   TradeShow = snapshot.val().tradeShow
   Sports = snapshot.val().sports
 })
+// =============================================================================================================
 
-
+// spawn google map module using longitude latitude in the map button
 function initializeGMap(lat, lng) {
   myLatlng = new google.maps.LatLng(lat, lng);
 
@@ -48,7 +51,8 @@ function initializeGMap(lat, lng) {
   map.setCenter(myLatlng);
 }
 
-
+// this area is the search event API scripting function
+// ===================================================================================================================
 // These variables hold will feed data to the querlyURL. The variable values will come from user input. Currently some of the variables hold temporary data for testing purposes.
 var API_KEY = "vMvwtd4qCcNr8hZL";
 var proxyURL = "https://cors-anywhere.herokuapp.com/"
@@ -78,8 +82,8 @@ function searchEvents(data) {
 
     for (var i = 0; i < eventData.length; i++) {
 
+      // use placeholder if there is no avaible image
       var imgSRC;
-
       if (eventData[i].image === null) {
         imgSRC = "assets/images/unboremini.png";
       } else {
@@ -110,6 +114,7 @@ function searchEvents(data) {
       newImage.addClass("col-md-2")
       eventData[i].url
 
+      // facebook button
       newShareButton = $("<div>")
       newShareButton.addClass("fb-share-button btn btn-primary")
       newShareButton.attr({ "data-href": eventData[i].url, "data-layout": "button", "data-size": "large" })
@@ -121,22 +126,20 @@ function searchEvents(data) {
       shareAnchor.text("Share")
       newShareButton.append(shareAnchor)
 
+      // event website button
       newURL = $("<a>")
       newURL.attr("target", "_blank")
       newURL.attr("href", eventData[i].url)
       newURL.text("Event Info")
       newURL.addClass("btn btn-primary")
 
-      newMap = $("<div>")
-      newMap.attr("id", "map")
-      newMap.attr("style", "display:none")
-
+      // google map button
       newButton = $("<button type='button' data-toggle='modal' data-target='#myModal' data-lat='" + eventData[i].latitude + "' data-lng='" + eventData[i].longitude + "'>")
       newButton.text("View Map")
       newButton.attr("value", eventData[i].venue_address)
       newButton.addClass("map btn btn-primary")
 
-
+      // div that holds all this new information
       newEvent = $("<div>")
       newEvent.append(newImage, newTitle, newAddress, newTime, newURL, newShareButton, newButton)
       newEvent.addClass("cards")
@@ -146,14 +149,16 @@ function searchEvents(data) {
     }
   })
 }
+// =========================================================================================================
 
-
+// when the document is fully loaded and ready for human interaction
 $(document).ready(function () {
 
+  // search for events button
   $("#submitSearch").click(function (event) {
     event.preventDefault();
 
-
+    // the search querie NEEDs a location
     if ($("#state").val() === "") {
       alert("location needed")
       return false;
@@ -172,7 +177,7 @@ $(document).ready(function () {
       // Running the searchEvents function(passing search queries as arguments)
       searchEvents(submitData);
 
-      // finds the chosen catagory and updates firebase      
+      // finds the chosen catagory and updates firebase to steal user data      
       if (submitData.category === "Food") {
         Food++
         database.ref().update({
