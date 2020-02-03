@@ -1,4 +1,4 @@
-# Project-01
+# UnBoreME - Group Project
 
 --FRONT END
 Header with project name and catchy mini phrase to explain use
