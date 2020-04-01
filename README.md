@@ -15,6 +15,8 @@ The "Share" button allows users to share the event to their own Facebook page.
 
 The "View Map" button triggers a modal pop-up with a Google map of the event.
 
+Try for yourself: [UnBoreMe](https://acarrillo2019.github.io/UnBoreMe-Group-Project/)
+
 
 ![](/screenshots/unbore_3.PNG)
 
