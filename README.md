@@ -1,5 +1,8 @@
 # UnBoreME - Group Project
 
+
+![GitHub Logo](/screenshots/unbore_2.PNG)
+
 --FRONT END
 Header with project name and catchy mini phrase to explain use
 create form with inputs for search terms, state and city drop down menu, and radius drop down menu.
